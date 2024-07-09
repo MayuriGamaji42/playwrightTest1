@@ -1,4 +1,4 @@
-name: PlaywrightTests
+name: Playwright-Installation
 
 on:
   workflow_dispatch:
@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: playwright-tests-report
-          path: playwright-tests
+          path: playwright-tests-report.xml
