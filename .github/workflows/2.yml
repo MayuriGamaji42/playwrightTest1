@@ -28,4 +28,4 @@ jobs:
         run: npx playwright install
 
       - name: Run Playwright tests
-        run: npm test
+        run: npm test ./login.spc.ts --project chromium --headed
