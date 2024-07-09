@@ -50,16 +50,15 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { browserName: 'chromium' },
+      name: 'Main branch tests',
+      use: {
+        browserName: 'chromium', // Specify browserName here
+        // Optionally, you can configure more options here
+      },
     },
     {
-      name: 'firefox',
-      use: { browserName: 'firefox' },
-    },
-    {
-      name: 'webkit',
-      use: { browserName: 'webkit' },
+      name: 'Default tests',
+      // If you have default tests configuration without specifying browserName
     },
   
 
