@@ -1,26 +1,24 @@
 name: PlaywrightTests
 on: 
-   push: 
+  push: 
 
 jobs:
   playwright-run:
-    runs-on: ubuntu@latest
+    runs-on: ubuntu-latest
     steps:
-    - name: checkout
+    - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: setup node
-    - uses: actions/setup-node@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
       with:
-         node-version: 18
+        node-version: 18
 
     - name: Install dependencies
-      run: npm i
+      run: npm install
       
     - name: Install Playwright Browser
       run: npx playwright install
       
     - name: Run Playwright tests
-      run: npx playwright test ./login.spec.ts --project chromium --headed
-      
-    
+      run: npx playwright test ./login.spec.ts --project=chromium --headed
