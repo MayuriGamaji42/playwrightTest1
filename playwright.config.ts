@@ -7,13 +7,14 @@ const config: PlaywrightTestConfig = {
         channel: "chrome",
         screenshot: "only-on-failure",
         video: "retain-on-failure"
-        
+
    },
 
    testMatch: ["**.test.ts"],
    retries: 0,
    reporter: [["dot"], ["json", { outputFile: "test-result.json"}]]
 }
+
 
 /**
  * Read environment variables from file.
@@ -50,18 +51,26 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        browserName: 'chromium', // Specify Chromium browserName
+      },
     },
-
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        ...devices['Desktop Firefox'],
+        browserName: 'firefox', // Specify Firefox browserName
+      },
     },
-
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: {
+        ...devices['Desktop Safari'],
+        browserName: 'webkit', // Specify WebKit (Safari) browserName
+      },
     },
+  
 
     /* Test against mobile viewports. */
     // {
