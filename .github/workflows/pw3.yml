@@ -1,4 +1,4 @@
-name: PlaywrightTests
+name: PlaywrightTests_push
 
 on:
   push:
