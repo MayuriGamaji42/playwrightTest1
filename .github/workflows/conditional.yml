@@ -24,7 +24,7 @@ jobs:
       - name: Conditional Test Execution
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            npx playwright test --browser=chromium
+            npx playwright test
           else
             npx playwright test
           fi
@@ -32,5 +32,5 @@ jobs:
       - name: Upload Playwright Test Report
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-tests-report
-          path: .
+          name: playwright-report
+          path: playwright-report
