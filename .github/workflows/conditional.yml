@@ -21,7 +21,7 @@ jobs:
       - name: Conditional Test Execution
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            npx playwright test --browser chromium
+            npx playwright test --chromium
           else
             npx playwright test
           fi
