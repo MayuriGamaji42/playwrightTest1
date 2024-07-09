@@ -1,4 +1,5 @@
 name: PlaywrightTests
+
 on:
   workflow_dispatch:
 
@@ -25,4 +26,6 @@ jobs:
 
       - name: Upload Playwright Test Report
         uses: actions/upload-artifact@v3
-        path: playwright-tests
+        with:
+          name: playwright-tests-report
+          path: playwright-tests
