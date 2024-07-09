@@ -5,6 +5,8 @@ const config: PlaywrightTestConfig = {
    use: {
         headless: true,
         channel: "chrome",
+        screenshot: "only-on-failure",
+        video: "retain-on-failure"
         
    },
 
