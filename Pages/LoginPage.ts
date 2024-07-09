@@ -14,7 +14,7 @@ export default class LoginPage
   async navigate() {
     await this.page.goto('https://demoblaze.com/');
     await this.page.click('#login2'); // Click on the "Sign in" link
-    await this.page.waitForSelector('#loginusername');
+    await this.page.waitForSelector('#login');
   }
 
   async login(username: string, password: string) {
