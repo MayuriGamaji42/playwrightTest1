@@ -2,6 +2,9 @@ name: Conditional Workflow Based on Branch
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main  # Trigger on push to main branch
 
 jobs:
   playwright-run:
@@ -21,7 +24,7 @@ jobs:
       - name: Conditional Test Execution
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            npx playwright test --chromium
+            npx playwright test --browser=chromium
           else
             npx playwright test
           fi
@@ -30,4 +33,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: playwright-tests-report
-          path: path/to/your/test/reports
+          path: .
