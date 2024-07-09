@@ -1,4 +1,17 @@
 import { defineConfig, devices } from '@playwright/test';
+import { PlaywrightTestConfig } from '@playwright/test';
+
+const config: PlaywrightTestConfig = {
+   use: {
+        headless: true,
+        channel: "chrome",
+        
+   },
+
+   testMatch: ["**.test.ts"],
+   retries: 0,
+   reporter: [["dot"], ["json", { outputFile: "test-result.json"}]]
+}
 
 /**
  * Read environment variables from file.
