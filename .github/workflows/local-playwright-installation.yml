@@ -1,8 +1,7 @@
 name: PlaywrightTests
-
 on:
-  workflow_dispatch: 
- 
+  workflow_dispatch:
+
 jobs:
   playwright-run:
     runs-on: ubuntu-latest
