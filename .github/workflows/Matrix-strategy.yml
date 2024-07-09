@@ -11,12 +11,12 @@ jobs:
         browser: [chromium, firefox]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '18'
 
       - name: Install Playwright
         run: npm install playwright
@@ -28,7 +28,7 @@ jobs:
         run: npm test -- --browser ${{ matrix.browser }}
 
       - name: Upload Playwright Test Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: playwright-tests-report-${{ matrix.browser }}
           path: path/to/your/test/reports
