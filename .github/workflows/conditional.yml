@@ -20,10 +20,10 @@ jobs:
 
       - name: Conditional Test Execution
         run: |
-          if [ ${{ github.ref }} = 'refs/heads/main' ]; then
-            npm test -- --suite end-to-end
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            npx playwright test --browser chromium
           else
-            npm test
+            npx playwright test
           fi
 
       - name: Upload Playwright Test Report
