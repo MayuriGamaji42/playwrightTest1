@@ -1,14 +1,15 @@
-name: Matrix-strategy
+name: PlaywrightTests
 
 on:
   workflow_dispatch:
 
 jobs:
-  playwright-run:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         browser: [chromium, firefox]
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -16,7 +17,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '16'
 
       - name: Install Playwright
         run: npm install playwright
@@ -25,7 +26,8 @@ jobs:
         run: npm install
 
       - name: Run Playwright tests
-        run: npm test -- --browser ${{ matrix.browser }}
+        run: |
+          npx playwright test --project=$browser
 
       - name: Upload Playwright Test Report
         uses: actions/upload-artifact@v4
