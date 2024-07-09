@@ -1,0 +1,34 @@
+name: Matrix-strategy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  playwright-run:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: [chromium, firefox]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install Playwright
+        run: npm install playwright
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Playwright tests
+        run: npm test -- --browser ${{ matrix.browser }}
+
+      - name: Upload Playwright Test Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: playwright-tests-report-${{ matrix.browser }}
+          path: path/to/your/test/reports
