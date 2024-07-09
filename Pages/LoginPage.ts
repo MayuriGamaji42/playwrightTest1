@@ -14,11 +14,11 @@ export default class LoginPage
   async navigate() {
     await this.page.goto('https://demoblaze.com/');
     await this.page.click('#login2'); // Click on the "Sign in" link
-    await this.page.waitForSelector('#login');
+    await this.page.waitForSelector('#loginusername');
   }
 
   async login(username: string, password: string) {
-    await this.page.fill('#loginusername', username);
+    await this.page.fill('#login', username);
     await this.page.fill('#loginpassword', password);
     await this.page.click('[onclick="logIn()"]');
   }
