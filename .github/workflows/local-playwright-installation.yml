@@ -29,3 +29,8 @@ jobs:
         with:
           name: playwright-tests-report
           path: playwright-tests-report.xml
+
+      - name: Notify on test failures
+        if: failure()  # Notify only if tests fail
+        run: echo "Tests failed. Notify the team."
+    
