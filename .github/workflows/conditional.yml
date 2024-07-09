@@ -1,0 +1,33 @@
+name: Conditional Workflow Based on Branch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  playwright-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Conditional Test Execution
+        run: |
+          if [ ${{ github.ref }} = 'refs/heads/main' ]; then
+            npm test -- --suite end-to-end
+          else
+            npm test
+          fi
+
+      - name: Upload Playwright Test Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-tests-report
+          path: path/to/your/test/reports
