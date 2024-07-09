@@ -1,9 +1,13 @@
 name: PlaywrightTests
-on: 
-  push: 
+
+on:
+  push:
 
 jobs:
   playwright-run:
+    container:
+      image: mcr.microsoft.com/playwright:focal
+      options: --user root  # Optional: allows running commands as root
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -16,12 +20,9 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-      
-    - name: Install Playwright Browser
-      run: npx playwright install
-      
+
     - name: Run Playwright tests
-      run: npx playwright test --project=chromium --reporter=html
+      run: npm test
 
     - name: Upload Playwright Test Report
       uses: actions/upload-artifact@v3
