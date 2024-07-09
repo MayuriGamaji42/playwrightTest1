@@ -21,4 +21,4 @@ jobs:
       run: npx playwright install
       
     - name: Run Playwright tests
-      run: npx playwright test ./login.spec.ts --project=chromium --headed
+      run: npx playwright test ./login.spec.ts --project=chromium
