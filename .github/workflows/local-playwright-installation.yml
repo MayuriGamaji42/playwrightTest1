@@ -27,10 +27,8 @@ jobs:
       - name: Upload Playwright Test Report
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-tests-report
-          path: playwright-tests-report.xml
+          name: playwright-report
+          path: playwright-report
 
-      - name: Notify on test failures
-        if: failure()  # Notify only if tests fail
-        run: echo "Tests failed. Notify the team."
+
     
