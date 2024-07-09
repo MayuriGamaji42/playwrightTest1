@@ -7,8 +7,10 @@ jobs:
   playwright-run:
     container:
       image: mcr.microsoft.com/playwright:focal
-      options: --user root  # Optional: allows running commands as root
+      options: --user root  # Allows running commands as root
     runs-on: ubuntu-latest
+    env:
+      HOME: /root  
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
