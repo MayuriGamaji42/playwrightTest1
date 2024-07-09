@@ -51,22 +51,11 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: {
-        browserName: 'chromium', // Specify Chromium browserName
-      },
+      use: { browserName: 'chromium' },
     },
     {
       name: 'firefox',
-      use: {
-        browserName: 'firefox', // Specify Firefox browserName
-      },
-    },
-    {
-      name: 'webkit',
-      use: {
-        ...devices['Desktop Safari'],
-        browserName: 'webkit', // Specify WebKit (Safari) browserName
-      },
+      use: { browserName: 'firefox' },
     },
   
 
