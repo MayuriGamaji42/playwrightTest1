@@ -3,7 +3,6 @@ import { test, expect } from '@playwright/test';
 import LoginPage from "../Pages/LoginPage" ; 
 import HomePage from "../Pages/HomePage" ; 
 import { testData } from '../data/testData';
-import defineConfig from '../playwright.config.ts';
 
 test('Login Test', async ({ page }) => {
   const loginPage = new LoginPage(page);
