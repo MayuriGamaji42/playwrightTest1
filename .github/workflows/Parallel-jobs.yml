@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:focal
-      options: --user root  # Allows running commands as root if needed
+      options: --user root  
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:focal
-      options: --user root  # Allows running commands as root if needed
+      options: --user root  
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
