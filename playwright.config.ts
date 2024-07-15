@@ -26,6 +26,24 @@ const config: PlaywrightTestConfig = {
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+module.exports = {  
+  //...  
+  projects: [  
+   {  
+    name: 'chromium',  
+    use: {  
+      browserName: 'chromium',  
+    },  
+   },  
+   {  
+    name: 'firefox',  
+    use: {  
+      browserName: 'firefox',  
+    },  
+   },  
+  ],  
+};
+
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
