@@ -61,4 +61,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: firefox-test-report
-          path: path/to/your/firefox/test/reports
+          path: playwright-report
