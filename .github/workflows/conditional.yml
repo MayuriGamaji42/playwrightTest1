@@ -2,9 +2,6 @@ name: Conditional Workflow Based on Branch
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main  # Trigger on push to main branch
 
 jobs:
   playwright-run:
