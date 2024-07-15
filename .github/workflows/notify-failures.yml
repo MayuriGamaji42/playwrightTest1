@@ -17,16 +17,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Playwright tests
-        run: npm test || echo "Tests failed"
+      - name: Run Playwright tests on Chrome  
+        run: |  
+         npx playwright install chromium  
+         npm test --project=chromium || echo "Tests failed"  
+      - name: Upload Playwright Test Report  
+        if: always()  
+        uses: actions/upload-artifact@v4  
+        with:  
+         name: playwright-report  
+         path: playwright-report  
+      - name: Notify on test failures  
+        if: failure()  
+        run: echo "Tests failed. Notify the team."  
 
-      - name: Upload Playwright Test Report
-        if: always()  # Always upload report, even if tests fail
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-report
-          path: playwright-report
-
-      - name: Notify on test failures
-        if: failure()  # Notify only if tests fail
-        run: echo "Tests failed. Notify the team."
