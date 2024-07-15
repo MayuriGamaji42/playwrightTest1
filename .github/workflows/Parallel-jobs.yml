@@ -25,7 +25,7 @@ jobs:
         run: npx playwright install --with-deps
           
       - name: Run Playwright tests on Chromium
-        run: npx playwright test --browser=chromium 
+        run: npx playwright test --project=chromium 
 
       - name: Upload Chromium Test Report
         uses: actions/upload-artifact@v4
@@ -54,7 +54,7 @@ jobs:
         run: npx playwright install --with-deps
           
       - name: Run Playwright tests on Firefox
-        run: npx playwright test --browser=firefox 
+        run: npx playwright test --project=firefox 
 
 
       - name: Upload Firefox Test Report
