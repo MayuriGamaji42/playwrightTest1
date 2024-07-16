@@ -58,7 +58,7 @@ jobs:
         run: npx playwright install --with-deps
           
       - name: Run Playwright tests on WebKit
-        run: npx playwright test --headed
+        run: npx playwright test 
 
 
       - name: Upload WebKit Test Report
