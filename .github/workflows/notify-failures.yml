@@ -30,4 +30,3 @@ jobs:
       - name: Notify on test failures  
         if: failure()  
         run: echo "Tests failed. Notify the team."  
-
