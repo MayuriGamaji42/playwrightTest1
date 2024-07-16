@@ -38,6 +38,8 @@ jobs:
     container:
       image: mcr.microsoft.com/playwright:focal
       options: --user root  
+      env:
+        HOME: /root
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
