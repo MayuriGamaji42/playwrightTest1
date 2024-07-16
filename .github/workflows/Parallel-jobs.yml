@@ -33,7 +33,7 @@ jobs:
           name: chromium-test-report
           path: playwright-report
 
-  firefox-tests:
+  webkit-tests:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:focal
@@ -57,12 +57,12 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
           
-      - name: Run Playwright tests on Firefox
-        run: npx playwright test --project=firefox 
+      - name: Run Playwright tests on WebKit
+        run: npx playwright test --project=webkit 
 
 
-      - name: Upload Firefox Test Report
+      - name: Upload WebKit Test Report
         uses: actions/upload-artifact@v4
         with:
-          name: firefox-test-report
+          name: webkit-test-report
           path: playwright-report
