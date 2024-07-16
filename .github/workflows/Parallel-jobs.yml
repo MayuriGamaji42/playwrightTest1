@@ -38,8 +38,7 @@ jobs:
     container:
       image: mcr.microsoft.com/playwright:focal
       options: --user root  
-      env:
-        HOME: /root
+      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -49,6 +48,9 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Set HOME envirenment avriable
+        run: export HOME=/root
+        
       - name: Install dependencies
         run: npm install
 
