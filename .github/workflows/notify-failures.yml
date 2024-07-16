@@ -17,16 +17,22 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Playwright tests on Chrome  
-        run: |  
-         npx playwright install chromium  --reporter=json-summary
-         npm test --project=chromium || echo "Tests failed"  
-      - name: Upload Playwright Test Report  
-        if: always()  
-        uses: actions/upload-artifact@v4 
-        with:  
-         name: playwright-report  
-         path: playwright-report.json
-      - name: Notify on test failures  
+      - name: Run Playwright tests on Chromium
+        run: |
+          npx playwright test --project=chromium --reporter=json
+          TEST_EXIT_CODE=$?  # Capture exit code of test command
+          if [ $TEST_EXIT_CODE -ne 0 ]; then
+            echo "Tests failed"
+            exit 1  # Exit with failure status
+          fi
+
+      - name: Upload Playwright Test Report
+        if: always() 
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report.json
+
+      - name: Notify on test failures
         if: failure()  
-        run: echo "Tests failed. Notify the team."  
+        run: echo "Tests failed. Notify the team."
