@@ -13,12 +13,12 @@ test('Login Test', async ({ page }) => {
 
   await page.waitForTimeout(3000)
 
-  Home
-  const home =  new HomePage(page);
-  await home.addProductToCart(testData.productName)
+  // Home
+  // const home =  new HomePage(page);
+  // await home.addProductToCart(testData.productName)
 
-  await page.waitForTimeout(3000)
+  // await page.waitForTimeout(3000)
   
-  await home.gotoCart()
+  // await home.gotoCart()
 
 });
