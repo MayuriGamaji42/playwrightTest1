@@ -16,7 +16,7 @@ export default class SignUpPage {
 
   async signUp(username: string, password: string) {
     await this.page.fill('#sign-username', username);
-    await this.page.fill('#-password', password);
+    await this.page.fill('#sign-password', password);
     await this.page.click('[onclick="register()"]');
   }
 }
