@@ -24,9 +24,9 @@ jobs:
       - name: Conditional Test Execution
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            npx playwright test
+            npx playwright test --reporter=json
           else
-            npx playwright test
+            npx playwright test --reporter=json
           fi
 
       - name: Upload Playwright Test Report
