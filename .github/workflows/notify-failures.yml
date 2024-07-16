@@ -19,7 +19,7 @@ jobs:
 
       - name: Run Playwright tests on Chromium
         run: |
-          npx playwright test --project=chromium --reporter=json
+          npx playwright test --project=chromium 
           TEST_EXIT_CODE=$?  # Capture exit code of test command
           if [ $TEST_EXIT_CODE -ne 0 ]; then
             echo "Tests failed"
