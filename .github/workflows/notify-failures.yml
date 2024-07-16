@@ -19,11 +19,11 @@ jobs:
 
       - name: Run Playwright tests on Chrome  
         run: |  
-         npx playwright install chromium  
+         npx playwright install chromium  --reporter=json
          npm test --project=chromium || echo "Tests failed"  
       - name: Upload Playwright Test Report  
         if: always()  
-        uses: actions/upload-artifact@v4 --reporter=json
+        uses: actions/upload-artifact@v4 
         with:  
          name: playwright-report  
          path: playwright-report.json
